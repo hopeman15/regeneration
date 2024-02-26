@@ -17,7 +17,7 @@ SIGNING_CONFIG ?= CODE_SIGNING_ALLOWED=NO
 all: all-android all-ios all-shared
 .PHONY: all
 
-all-android: clean-android test-android assemble
+all-android: clean-gradle test-android assemble
 .PHONY: all-android
 
 all-ios: clean-ios analyze-ios test-ios build-ios
@@ -26,7 +26,7 @@ all-ios: clean-ios analyze-ios test-ios build-ios
 all-shared: test-shared
 .PHONY: all-shared
 
-clean: clean-android clean-ios
+clean: clean-gradle clean-ios
 .PHONY: clean
 
 lint: lint-android
@@ -44,7 +44,7 @@ bundle:
 	./gradlew bundle${BUILD_TYPE} ${GRADLE_ARGS}
 .PHONY: bundle
 
-clean-android:
+clean-gradle:
 	./gradlew clean ${GRADLE_ARGS}
 .PHONY: clean
 

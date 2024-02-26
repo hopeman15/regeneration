@@ -40,7 +40,7 @@ jobs:
           java-version: '17'
           cache: 'gradle'
       - name: Linting
-        run: make clean-android lint-android
+        run: make clean-gradle lint-android
 
   test:
     name: "Test & Report"
@@ -76,7 +76,7 @@ jobs:
           java-version: '17'
           cache: 'gradle'
       - name: Assemble
-        run: make clean-android assemble
+        run: make clean-gradle assemble
 
   bundle:
     name: Bundle
@@ -94,4 +94,4 @@ jobs:
           java-version: '17'
           cache: 'gradle'
       - name: Bundle
-        run: make clean-android bundle
+        run: make clean-gradle bundle

@@ -37,7 +37,7 @@ jobs:
           java-version: '17'
           cache: 'gradle'
       - name: Test
-        run: make clean test-shared-android
+        run: make clean-gradle test-shared-android
 
   test-ios:
     name: "Test iOS "
@@ -55,4 +55,4 @@ jobs:
           java-version: '17'
           cache: 'gradle'
       - name: Test
-        run: make clean test-shared-ios
+        run: make clean-gradle test-shared-ios
