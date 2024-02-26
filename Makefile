@@ -34,3 +34,14 @@ test: test-android
 test-android:
 	./gradlew test${BUILD_TYPE}UnitTest ${GRADLE_ARGS}
 .PHONY: test-android
+
+test-shared: test-shared-android test-shared-ios
+.PHONY: test-shared
+
+test-shared-android:
+	./gradlew :shared:test${BUILD_TYPE}UnitTest ${GRADLE_ARGS}
+.PHONY: test-shared-android
+
+test-shared-ios:
+	./gradlew :shared:cleanIosX64Test :shared:iosX64Test ${GRADLE_ARGS}
+.PHONY: test-shared-ios
