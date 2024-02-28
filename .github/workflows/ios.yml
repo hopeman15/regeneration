@@ -44,7 +44,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
-
+      - name: Set up JDK
+        uses: actions/setup-java@v3.13.0
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
       - name: Test
         run: make clean-ios test-ios DEVICE='iPhone 14'
 
