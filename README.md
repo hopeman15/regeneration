@@ -1,4 +1,4 @@
-# Regen Ranch Swift 🧑‍🌾
+# Regen Ranch 🧑‍🌾
 
 [![Build Status](https://github.com/hopeman15/regen-ranch/actions/workflows/android.yml/badge.svg?event=push)](https://github.com/hopeman15/regen-ranch/actions)
 [![Build Status](https://github.com/hopeman15/regen-ranch/actions/workflows/ios.yml/badge.svg?event=push)](https://github.com/hopeman15/regen-ranch/actions)
