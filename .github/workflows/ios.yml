@@ -1,0 +1,70 @@
+name: iOS 
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  cancel-previous:
+    name: Cancel Previous
+    permissions:
+      contents: read
+      actions: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel Previous Build
+        uses: styfle/cancel-workflow-action@0.12.0
+        with:
+          access_token: ${{ secrets.GITHUB_TOKEN }}
+
+  lint:
+    name: "Lint "
+    permissions:
+      contents: read
+    runs-on: macos-13
+    needs: cancel-previous
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+
+      - name: Switch to Xcode 15
+        run: sudo xcode-select -s /Applications/Xcode_15.0.1.app
+
+      - name: Linting
+        run: make clean-ios analyze-ios
+
+  test:
+    name: "Test & Report "
+    runs-on: macos-latest
+    needs: cancel-previous
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - name: Set up JDK
+        uses: actions/setup-java@v3.13.0
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+      - name: Test
+        run: make clean-ios test-ios DEVICE='iPhone 14'
+
+  build:
+    name: "Build "
+    permissions:
+      contents: read
+    runs-on: macos-13
+    needs: cancel-previous
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+
+      - name: Switch to Xcode 15
+        run: sudo xcode-select -s /Applications/Xcode_15.0.1.app
+
+      - name: Build
+        run: make clean-ios build-ios
