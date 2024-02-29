@@ -1,4 +1,4 @@
-package com.hello.curiosity.regenranch.android
+package com.hello.curiosity.regeneration.android
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape

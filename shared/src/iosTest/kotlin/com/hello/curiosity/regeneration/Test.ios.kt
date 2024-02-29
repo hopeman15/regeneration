@@ -1,4 +1,4 @@
-package com.hello.curiosity.regenranch
+package com.hello.curiosity.regeneration
 
 import kotlin.test.Test
 import kotlin.test.assertTrue

@@ -1,4 +1,4 @@
-package com.hello.curiosity.regenranch
+package com.hello.curiosity.regeneration
 
 import platform.UIKit.UIDevice
 
