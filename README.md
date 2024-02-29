@@ -1,4 +1,4 @@
-# Regen Ranch 🧑‍🌾
+# Regeneration 🧑‍🌾
 
 [![Build Status](https://github.com/hopeman15/regeneration/actions/workflows/android.yml/badge.svg?event=push)](https://github.com/hopeman15/regeneration/actions)
 [![Build Status](https://github.com/hopeman15/regeneration/actions/workflows/ios.yml/badge.svg?event=push)](https://github.com/hopeman15/regeneration/actions)
