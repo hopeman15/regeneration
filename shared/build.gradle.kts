@@ -34,7 +34,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.hello.curiosity.regenranch"
+    namespace = "com.hello.curiosity.regeneration"
     compileSdk = 34
     defaultConfig {
         minSdk = 24

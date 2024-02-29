@@ -4,10 +4,10 @@ plugins {
 }
 
 android {
-    namespace = "com.hello.curiosity.regenranch.android"
+    namespace = "com.hello.curiosity.regeneration.android"
     compileSdk = 34
     defaultConfig {
-        applicationId = "com.hello.curiosity.regenranch.android"
+        applicationId = "com.hello.curiosity.regeneration.android"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

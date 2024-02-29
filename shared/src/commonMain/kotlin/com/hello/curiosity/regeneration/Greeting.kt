@@ -1,4 +1,4 @@
-package com.hello.curiosity.regenranch
+package com.hello.curiosity.regeneration
 
 class Greeting {
     private val platform: Platform = getPlatform()

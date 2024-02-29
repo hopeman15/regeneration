@@ -1,4 +1,4 @@
-package com.hello.curiosity.regenranch
+package com.hello.curiosity.regeneration
 
 import org.junit.Assert.assertTrue
 import org.junit.Test
