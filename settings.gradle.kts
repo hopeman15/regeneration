@@ -14,6 +14,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "regen-ranch"
+rootProject.name = "Regeneration"
 include(":android")
 include(":shared")
