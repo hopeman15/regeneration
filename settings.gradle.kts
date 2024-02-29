@@ -14,6 +14,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Regeneration"
+rootProject.name = "regeneration"
 include(":android")
 include(":shared")
