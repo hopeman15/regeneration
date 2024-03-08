@@ -73,7 +73,7 @@ jobs:
           java-version: '17'
           cache: 'gradle'
       - name: Test
-        run: make clean-gradle lint-shared-common
+        run: make clean-gradle lint-shared-ios
 
   test-android:
     name: "Test Android 🤖"
