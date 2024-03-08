@@ -23,13 +23,13 @@ all-android: clean-gradle test-android assemble
 all-ios: clean-ios analyze-ios test-ios build-ios
 .PHONY: all-ios
 
-all-shared: test-shared
+all-shared: test-shared lint-shared
 .PHONY: all-shared
 
 clean: clean-gradle clean-ios
 .PHONY: clean
 
-lint: lint-android
+lint: lint-android lint-shared
 .PHONY: lint
 
 test: test-android test-shared test-ios
@@ -49,7 +49,7 @@ clean-gradle:
 .PHONY: clean
 
 lint-android:
-	./gradlew lint${BUILD_TYPE} ${GRADLE_ARGS}
+	./gradlew lint${BUILD_TYPE} detekt ${GRADLE_ARGS}
 .PHONY: lint-android
 
 test-android:
@@ -74,6 +74,21 @@ test-ios:
 .PHONY: test-ios
 
 # Shared
+lint-shared: lint-shared-android lint-shared-common lint-shared-ios
+.PHONY: lint-shared
+
+lint-shared-android:
+	./gradlew :shared:detektAndroid${BUILD_TYPE} ${GRADLE_ARGS}
+.PHONY: lint-shared-android
+
+lint-shared-common:
+	./gradlew :shared:detektMetadataCommonMain ${GRADLE_ARGS}
+.PHONY: lint-shared-common
+
+lint-shared-ios:
+	./gradlew :shared:detektMetadataIosMain ${GRADLE_ARGS}
+.PHONY: lint-shared-ios
+
 test-shared: test-shared-android test-shared-ios
 .PHONY: test-shared
 
