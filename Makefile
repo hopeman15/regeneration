@@ -74,20 +74,20 @@ test-ios:
 .PHONY: test-ios
 
 # Shared
-lint-shared: lint-shared-android lint-shared-ios lint-shared-main
+lint-shared: lint-shared-android lint-shared-common lint-shared-ios
 .PHONY: lint-shared
 
 lint-shared-android:
 	./gradlew :shared:detektAndroid${BUILD_TYPE} ${GRADLE_ARGS}
 .PHONY: lint-shared-android
 
+lint-shared-common:
+	./gradlew :shared:detektMetadataCommonMain ${GRADLE_ARGS}
+.PHONY: lint-shared-common
+
 lint-shared-ios:
 	./gradlew :shared:detektMetadataIosMain ${GRADLE_ARGS}
 .PHONY: lint-shared-ios
-
-lint-shared-main:
-	./gradlew :shared:detektMetadataMain ${GRADLE_ARGS}
-.PHONY: lint-shared-main
 
 test-shared: test-shared-android test-shared-ios
 .PHONY: test-shared
