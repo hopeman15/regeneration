@@ -49,7 +49,7 @@ clean-gradle:
 .PHONY: clean
 
 lint-android:
-	./gradlew lint${BUILD_TYPE} android:detekt ${GRADLE_ARGS}
+	./gradlew lint${BUILD_TYPE} detekt ${GRADLE_ARGS}
 .PHONY: lint-android
 
 test-android:
