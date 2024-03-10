@@ -1,7 +1,10 @@
 plugins {
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.detekt)
     alias(libs.plugins.kotlinAndroid)
+
+    // Quality gates
+    alias(libs.plugins.detekt)
+    alias(libs.plugins.kotlinter)
 }
 
 android {
