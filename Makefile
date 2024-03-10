@@ -78,7 +78,7 @@ test-ios:
 .PHONY: test-ios
 
 # Shared
-lint-shared: lint-shared-android lint-shared-common lint-shared-ios
+lint-shared: lint-shared-android lint-shared-common lint-shared-ios lint-shared-kotlinter
 .PHONY: lint-shared
 
 lint-shared-android:
@@ -92,6 +92,10 @@ lint-shared-common:
 lint-shared-ios:
 	./gradlew :shared:detektMetadataIosMain ${GRADLE_ARGS}
 .PHONY: lint-shared-ios
+
+lint-shared-kotlinter:
+	./gradlew shared:lintKotlin
+.PHONY: lint-shared-kotlinter
 
 test-shared: test-shared-android test-shared-ios
 .PHONY: test-shared
