@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.detekt)
     alias(libs.plugins.kotlinAndroid).apply(false)
     alias(libs.plugins.kotlinMultiplatform).apply(false)
+    alias(libs.plugins.kotlinter)
 }
 
 tasks.withType<KotlinCompile> {
@@ -18,6 +19,7 @@ tasks.withType<KotlinCompile> {
 
 allprojects {
     apply(plugin = "io.gitlab.arturbosch.detekt")
+    apply(plugin = "org.jmailen.kotlinter")
 
     detekt {
         config.setFrom("$rootDir/detekt/detekt.yml")

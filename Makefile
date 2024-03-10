@@ -14,7 +14,7 @@ PROJECT_ARGS ?= -scheme ios -sdk iphonesimulator -destination 'platform=iOS Simu
 # TODO: Remove this and enable code signing on CI
 SIGNING_CONFIG ?= CODE_SIGNING_ALLOWED=NO
 
-all: all-android all-ios all-shared
+all: format all-android all-ios all-shared
 .PHONY: all
 
 all-android: clean-gradle test-android assemble
@@ -28,6 +28,10 @@ all-shared: test-shared lint-shared
 
 clean: clean-gradle clean-ios
 .PHONY: clean
+
+format:
+	./gradlew formatKotlin
+.PHONY: format
 
 lint: lint-android lint-shared
 .PHONY: lint
@@ -49,7 +53,7 @@ clean-gradle:
 .PHONY: clean
 
 lint-android:
-	./gradlew lint${BUILD_TYPE} detekt ${GRADLE_ARGS}
+	./gradlew lint${BUILD_TYPE} detekt ${GRADLE_ARGS} android:lintKotlin
 .PHONY: lint-android
 
 test-android:
@@ -74,7 +78,7 @@ test-ios:
 .PHONY: test-ios
 
 # Shared
-lint-shared: lint-shared-android lint-shared-common lint-shared-ios
+lint-shared: lint-shared-android lint-shared-common lint-shared-ios lint-shared-kotlinter
 .PHONY: lint-shared
 
 lint-shared-android:
@@ -88,6 +92,10 @@ lint-shared-common:
 lint-shared-ios:
 	./gradlew :shared:detektMetadataIosMain ${GRADLE_ARGS}
 .PHONY: lint-shared-ios
+
+lint-shared-kotlinter:
+	./gradlew shared:lintKotlin
+.PHONY: lint-shared-kotlinter
 
 test-shared: test-shared-android test-shared-ios
 .PHONY: test-shared
