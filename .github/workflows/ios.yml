@@ -25,7 +25,7 @@ jobs:
     name: "Lint "
     permissions:
       contents: read
-    runs-on: macos-13
+    runs-on: macos-14
     needs: cancel-previous
     steps:
       - name: Checkout
@@ -57,7 +57,7 @@ jobs:
     name: "Build "
     permissions:
       contents: read
-    runs-on: macos-13
+    runs-on: macos-14
     needs: cancel-previous
     steps:
       - name: Checkout
