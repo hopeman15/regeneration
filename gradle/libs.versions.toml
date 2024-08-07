@@ -6,7 +6,7 @@ compose-compiler = "1.5.4"
 compose-material3 = "1.2.1"
 detekt = "1.23.6"
 kotlin = "1.9.20"
-kotlinter = "4.3.0"
+kotlinter = "4.4.1"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
