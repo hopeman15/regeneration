@@ -28,7 +28,7 @@ jobs:
     needs: cancel-previous
     steps:
       - name: Checkout
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           persist-credentials: false
@@ -48,7 +48,7 @@ jobs:
     needs: cancel-previous
     steps:
       - name: Checkout
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
         with:
           fetch-depth: 0
       - name: Set up JDK
@@ -68,7 +68,7 @@ jobs:
     needs: cancel-previous
     steps:
       - name: Checkout
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
       - name: Set up JDK
         uses: actions/setup-java@v4.4.0
         with:
@@ -86,7 +86,7 @@ jobs:
     needs: cancel-previous
     steps:
       - name: Checkout
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
       - name: Set up JDK
         uses: actions/setup-java@v4.4.0
         with:
