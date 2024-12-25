@@ -8,8 +8,9 @@ ifeq ($(CI), true)
 endif
 
 # iOS
-DEVICE ?= iPhone 15
-PROJECT_ARGS ?= -scheme ios -sdk iphonesimulator -destination 'platform=iOS Simulator,name=${DEVICE}'
+DEVICE ?= iPhone 16
+SCHEME ?= ios
+PROJECT_ARGS ?= -scheme ${SCHEME} -sdk iphonesimulator -destination 'platform=iOS Simulator,name=${DEVICE}'
 
 # TODO: Remove this and enable code signing on CI
 SIGNING_CONFIG ?= CODE_SIGNING_ALLOWED=NO
