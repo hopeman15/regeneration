@@ -7,32 +7,20 @@ on:
   push:
     branches:
       - main
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
 
 jobs:
-  cancel-previous:
-    name: Cancel Previous
-    permissions:
-      contents: read
-      actions: write
-    runs-on: ubuntu-latest
-    steps:
-      - name: Cancel Previous Build
-        uses: styfle/cancel-workflow-action@0.12.1
-        with:
-          access_token: ${{ secrets.GITHUB_TOKEN }}
-
   lint:
     name: "Lint "
-    permissions:
-      contents: read
-    runs-on: macos-14
-    needs: cancel-previous
+    runs-on: macos-latest
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-
-      - name: Switch to Xcode 15
-        run: sudo xcode-select -s /Applications/Xcode_15.0.1.app
 
       - name: Linting
         run: make clean-ios analyze-ios
@@ -40,7 +28,6 @@ jobs:
   test:
     name: "Test & Report "
     runs-on: macos-latest
-    needs: cancel-previous
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
@@ -55,16 +42,10 @@ jobs:
 
   build:
     name: "Build "
-    permissions:
-      contents: read
-    runs-on: macos-14
-    needs: cancel-previous
+    runs-on: macos-latest
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-
-      - name: Switch to Xcode 15
-        run: sudo xcode-select -s /Applications/Xcode_15.0.1.app
 
       - name: Build
         run: make clean-ios build-ios
